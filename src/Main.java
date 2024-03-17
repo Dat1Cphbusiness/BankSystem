@@ -14,23 +14,7 @@ public class Main {
     public static void main(String[] args) {
        Bank bank = new Bank("Lollandsbanken");
 
-        File file = new File(path);
-        try {
-            Scanner scan = new Scanner(file);
-            scan.nextLine();//skip header
 
-            while(scan.hasNextLine()){
-                String s = scan.nextLine(); // "tess, 40000"
-                String[] line= s.split(",");
-                String name = line[0];
-                int balance = Integer.parseInt(line[1].trim());
-                bank.createCustomer(name,balance);
-
-            }
-
-        }catch(FileNotFoundException e){
-            System.out.println("File was not found");
-        }
 
         bank.userDialog();
     }
