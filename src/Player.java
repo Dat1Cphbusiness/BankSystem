@@ -1,9 +1,9 @@
-public class Customer {
+public class Player {
     private String name;
     private int balance;
 
 
-    public Customer (String name, int startAmount){
+    public Player(String name, int startAmount){
         this.name = name;
         this.balance = startAmount;
     }

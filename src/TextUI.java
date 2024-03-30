@@ -7,7 +7,6 @@ public class TextUI {
 
     public void displayList(ArrayList<String> list, String msg){
         System.out.println(msg);
-        http:
         for (String option : list) {
             System.out.println(option);
         }

@@ -14,7 +14,7 @@ class Bank{
  + Bank(String name)
  + void runDialog()
  - void createCustomer(String name, int balance)
- - void displayCustomers()
+ + void displayCustomers()
 }
 
 class Customer{
