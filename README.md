@@ -30,7 +30,7 @@ The TurnbasedGame branch is the end goal and will be used as boilerplate for Mon
 
 
 
-### Didactic use
+## Didactic use
 1. In intelliJ clone project (New from version control). Name the project Turnbased game
 2. Start a new branch.
 3. hand out sprint sheet1:
