@@ -33,10 +33,11 @@ The TurnbasedGame branch is the end goal and will be used as boilerplate for Mon
 ## Didactic use
   **Materials:** print out of sprint sheet 1 and 2. 1 copy for each pair in the class (class of 30, print 16) [url](https://github.com/Dat1Cphbusiness/Kursusindhold/blob/main/Sprint1-TurnbasedGame.pdf)
   
-  **Groups:** Create teams of 4. The subdivide teams into pairs.
+  **Groups:** Create teams of 4. Then subdivide teams into pairs.
   
   **Table arrangement:** place tables in squares(2x2). 
   
+
   **Progress**
 1. In intelliJ clone project (New from version control). Name the project Turnbased game
 2. Start a new branch.
