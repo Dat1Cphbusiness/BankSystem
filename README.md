@@ -3,7 +3,7 @@
 This is an in-class project used with live-coding and with sprint sheets (broken down assignments that the students code using pair programming )
 The domain is fluid/secodary as the project evolves from bank administration system to a turnbased game
 
-### The project demonstrates multiple level 2 java programming techniques
+## The project demonstrates multiple level 2 java programming techniques:
 
 
 
