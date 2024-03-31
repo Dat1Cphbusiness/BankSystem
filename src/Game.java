@@ -4,8 +4,8 @@ public class Game {
  private String name;
  private ArrayList<Player> players;
  private ArrayList<String> listOfActions;
- private TextUI ui = new TextUI();;
- private FileIO io = new FileIO();
+ private TextUI ui;
+ private FileIO io;
  private String playerDataPath = "data/playerData.csv";
 
 
@@ -15,6 +15,8 @@ public class Game {
 
     public Game(String name){
         this.name = name;
+        this.ui = new TextUI();
+        this.io = new FileIO();
         players = new ArrayList<>();
         listOfActions = new ArrayList<>();
         listOfActions.add("1) start new game");
@@ -71,7 +73,7 @@ public class Game {
             }
 
         }else{
-            registerPlayers();
+            this.registerPlayers();
         }
     }
 
