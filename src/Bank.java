@@ -5,22 +5,34 @@ import java.util.Scanner;
 public class Bank {
     private String name;
     private List<Customer> customers;
-
     private List<String> listOfActions;
     private Customer selectedCustomer;
 
     public Bank(String name) {
+        this.name = name;
         customers = new ArrayList<>();
+        this.createCustomersFromData("data/customers.csv");
+
         listOfActions = new ArrayList<>();
         listOfActions.add("1) Create  Customer");
         listOfActions.add("2) Select Customer");
         listOfActions.add("3) Deposit amount");
         listOfActions.add("4) Quit");
     }
+    public void createCustomersFromData(String path){
+        List<String> data=FileIO.readData(path);
+        if(!data.isEmpty()){
+            for (String s:data) {
+                String[] values= s.split(",");
+                String name = values[0];
+                float balance = Float.parseFloat(values[1].trim());
+                this.createCustomer(name,balance);
+        }
+    }
 
+    }
 
     public void runDialog() {
-
         int action = 0;
         while(action != listOfActions.size()){// the quit action must be the last action
             action = TextUI.promptChoice(listOfActions,"Choose an action from the list:");
@@ -37,7 +49,6 @@ public class Bank {
                         float amount = TextUI.promptNumeric("Type amount:");
                         selectedCustomer.addToBalance(amount);
                         break;
-
             }
         }
 
@@ -65,6 +76,7 @@ public class Bank {
     public void addCustomer(Customer c){
         this.customers.add(c);
     }
+
     public String toString(){
         String s = "";
         for (Customer c:customers) {
@@ -73,12 +85,6 @@ public class Bank {
         return s;
     }
 
-
-
-
-    public List getCustomers() {
-        return customers;
-    }
 
     public void runCreateCustomersDialog() {
         Scanner scan = new Scanner(System.in);
@@ -106,5 +112,9 @@ public class Bank {
     public void createCustomer(String name, float startAmount) {
         Customer c = new Customer(name, startAmount);
         this.addCustomer(c);
+    }
+
+    public void endSession() {
+        FileIO.saveData(this.getCustomersAsStrings(),"data/customers.csv", "Name, Balance");
     }
 }
