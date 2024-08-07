@@ -6,9 +6,62 @@ public class Bank {
     private String name;
     private List<Customer> customers;
 
+    private List<String> listOfActions;
+    private Customer selectedCustomer;
+
     public Bank(String name) {
         customers = new ArrayList<>();
+        listOfActions = new ArrayList<>();
+        listOfActions.add("1) Create  Customer");
+        listOfActions.add("2) Select Customer");
+        listOfActions.add("3) Deposit amount");
+        listOfActions.add("4) Quit");
     }
+
+
+    public void runDialog() {
+
+        int action = 0;
+        while(action != listOfActions.size()){// the quit action must be the last action
+            action = TextUI.promptChoice(listOfActions,"Choose an action from the list:");
+            switch (action){
+                case 1: //Create customers
+                        runCreateCustomersDialog();
+                        break;
+                case 2: //Select customer
+                        int id = TextUI.promptChoice(getCustomersAsStrings(), "Select a customer:");
+                        selectedCustomer = this.getCustomerById(id);
+                        TextUI.displayMsg("You have selected "+selectedCustomer);
+                        break;
+                case 3: //Deposit amount
+                        float amount = TextUI.promptNumeric("Type amount:");
+                        selectedCustomer.addToBalance(amount);
+                        break;
+
+            }
+        }
+
+    }
+
+    private Customer getCustomerById(int id) {
+        return customers.get(id-1);
+    }
+
+    /**
+     *
+     * @return the list of customer objects as a list of String objects
+     */
+    private List<String> getCustomersAsStrings() {
+        List<String> list = new ArrayList<>();
+        for (Customer c:customers
+             ) {
+            list.add(c.toString());
+
+        }
+        return list;
+    }
+
+
     public void addCustomer(Customer c){
         this.customers.add(c);
     }
@@ -21,33 +74,10 @@ public class Bank {
     }
 
 
-       /* Main.ui.displayMsg("Velkommen til "+this.name);
-        int action = 0;
 
-        while(action != listOfActions.size()){// the quit action is the last action
-            action = Main.ui.promptChoice(listOfActions, "Vælg en af følgende:");
-
-            switch(action){
-                case 1:
-                    //Opret kunde
-
-                    this.createCustomer(null, 0);
-                    break;
-                case 2:
-                    // Vis kunder
-                    displayCustomers();
-                    break;
-                case 3:
-                    //Indsæt/Hæv penge
-                    int amount = Main.ui.promptNumeric("Skriv beløb");
-                    currentCustomer.deposit(amount);
-                    break;
-            }
-            Main.saveData(this.customers);
-        }*/
 
     public List getCustomers() {
-            return customers;
+        return customers;
     }
 
     public void runCreateCustomersDialog() {
@@ -72,4 +102,6 @@ public class Bank {
 
         }
     }
+
+
 }
