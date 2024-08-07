@@ -27,9 +27,9 @@ class Main {
 
         Bank bank = new Bank("Sparekassen");
 
-        if(bank.getCustomers().isEmpty()){
-            bank.runCreateCustomersDialog();
-        }
+
+        bank.runDialog();
+
 
 
         System.out.print(bank);
