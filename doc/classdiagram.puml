@@ -28,9 +28,19 @@ class Customer{
 
 }
 
+class TextUI{
+ {static}- Scanner scan
+ {static}+ void displayList(list<String>, String)
+ {static}+ void displayMsg(String)
+ {static}+ int promptChoice(List<String>, String)
+ {static}+int promptNumeric(String)
+ {static}+ String promptText(String)
+
+}
 
 
 Main *-- Bank
 Bank *-- Customer
+Bank *-- TextUI
 
 @enduml
