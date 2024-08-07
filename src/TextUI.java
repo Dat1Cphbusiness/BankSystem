@@ -1,28 +1,28 @@
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TextUI {
 
-    private Scanner scan = new Scanner(System.in);
+    private static Scanner scan = new Scanner(System.in);
 
-    public void displayList(ArrayList<String> list, String msg){
+    public static void displayList(List<String> list, String msg){
         System.out.println(msg);
         http:
         for (String option : list) {
             System.out.println(option);
         }
     }
-    public String promptText(String msg){
+    public static String promptText(String msg){
         System.out.println(msg);
         String input = scan.nextLine();
         return input;
     }
-    public int promptNumeric(String msg){
+    public static int promptNumeric(String msg){
         String input = promptText(msg);         //Give brugere et sted at placere sit svar og vente pÃ¥ svaret
         int number = Integer.parseInt(input);       //Konvertere svaret til et tal
         return number;
     }
-    public int promptChoice(ArrayList<String> optionslist, String msg){//["Gin&Tonic", "Beer","Vine" ]
+    public static int promptChoice(List<String> optionslist, String msg){//["Gin&Tonic", "Beer","Vine" ]
         displayMsg(msg);
         displayList(optionslist, "");
         int input = promptNumeric("");//1
@@ -31,7 +31,7 @@ public class TextUI {
 
     }
 
-  public void displayMsg(String msg){
+  public static void displayMsg(String msg){
 
       System.out.println(msg);
   }
