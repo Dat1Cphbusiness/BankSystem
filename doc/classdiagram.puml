@@ -1,42 +1,53 @@
 @startuml
 class Main{
-+ static UI ui
-+ static String path
-+ static void main(String[] args)
+ {static}+ static void main(String[] args)
+ {static}- saveData()
 }
-
 
 class Bank{
  - String name
- - ArrayList<Customer> customers
- - ArrayList<String> listOfActions
- - Customer currentCustomer
- + Bank(String name)
+ - List<Customer> customers
+ - List<String> listOfActions
+ - Customer selectedCustomer
+ + Bank(String)
+ + void addCustomer(Customer)
+ + void createCustomer(String, double)
+ + Customer getCustomerById(int)
+ + List<Customer> getCustomers()
+ + List<String> getCustomersAsStrings()
+ + void runCreateCustomersDialog()
  + void runDialog()
- - void createCustomer(String name, int balance)
- - void displayCustomers()
+ + String toString()
 }
 
 class Customer{
-- String name
-- int balance
-+ Customer(String name)
-+ void deposit(int amount)
-+ int getBalance()
-+ String toString()
-+ String getName()
+ - String name
+ - double balance
+ + Customer(String, double)
+ + void addToBalance(double)
+ + void setBalance(double)
+ + String toString()
+
 }
 
 class TextUI{
-- Scanner scanner
-+ void displayMsg(String s)
-+ int promptNumeric(String msg)
-+ String promptText(String msg)
-+ int promptChoice(String msg, ArrayList<String> list)
+ {static}- Scanner scan
+ {static}+ void displayList(list<String>, String)
+ {static}+ void displayMsg(String)
+ {static}+ int promptChoice(List<String>, String)
+ {static}+int promptNumeric(String)
+ {static}+ String promptText(String)
+
+}
+class FileIO{
+{static}+List<String> readData(String)
+{static}+void saveData(List<String>,String,String)
 }
 
-Main *-- TextUI
+
 Main *-- Bank
 Bank *-- Customer
+Bank *-- TextUI
+Bank *-- FileIO
 
 @enduml

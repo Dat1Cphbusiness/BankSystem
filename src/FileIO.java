@@ -26,29 +26,7 @@ public class FileIO {
         return data;
     }
 
-    public ArrayList<String> readCustomerData(String path){
 
-        ArrayList<String> data = new ArrayList<>();
-
-        File file = new File(path);
-        try {
-            Scanner scan = new Scanner(file);
-            scan.nextLine();//skip header
-
-            while(scan.hasNextLine()){
-                String line = scan.nextLine();//"Tess, 2000"
-                data.add(line);//
-
-
-
-            }
-
-        }catch(FileNotFoundException e){
-            System.out.println("File was not found");
-        }
-
-        return data;
-    }
 
 
     public static void saveData(List<String> items, String path, String header) {
