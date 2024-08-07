@@ -57,7 +57,7 @@ class Main {
 
 
     }
-    public static void saveData(List<Customer> customers) {
+    private static void saveData(List<Customer> customers) {
         String path ="data/customers.csv";
 
         try {
