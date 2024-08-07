@@ -1,5 +1,9 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import java.util.List;
 import java.util.Scanner;
 
 /** This example demonstrates the foundations of building an object-oriented system in Java.
@@ -26,7 +30,7 @@ class Main {
     public static void main(String[] args) {
 
         Bank bank = new Bank("Sparekassen");
-        String path ="customers.csv";
+        String path ="data/customers.csv";
         File file = new File(path);
         try {
             Scanner scan = new Scanner(file);
@@ -36,7 +40,7 @@ class Main {
                 String line = scan.nextLine(); // "tess, 40000"
                 String[] values= line.split(",");
                 String name = values[0];
-                int balance = Integer.parseInt(values[1].trim());
+                float balance = Float.parseFloat(values[1].trim());
                 bank.createCustomer(name,balance);
 
             }
@@ -48,9 +52,23 @@ class Main {
         bank.runDialog();
 
 
-
+        saveData(bank.getCustomers());
         System.out.print(bank);
 
 
+    }
+    public static void saveData(List<Customer> customers) {
+        String path ="data/customers.csv";
+
+        try {
+            FileWriter writer = new FileWriter(path);
+            writer.write("Name, Balance\n"); //Giv csv filen en header
+            for (Customer c: customers) {
+                writer.write(c+"\n"); //"Tess, 40000";
+            }
+            writer.close();
+        }catch (IOException e){
+
+        }
     }
 }
