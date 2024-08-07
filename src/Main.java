@@ -15,7 +15,7 @@
  *
  *    The user can now add customers to the bank.
  *    But only if the list of customer objects is empty
- *    what if we want the user to add customers ad-hoc?
+ *    what if we want the user to add customers at various times during the session?
  *    what about other actions, like adding money to a customer's account?
  *    How could this be achieved?
  *
