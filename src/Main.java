@@ -1,26 +1,22 @@
 /** This example demonstrates the foundations of building an object-oriented system in Java.
  *  It uses the domain of a bank
  *
- *  Main branch
- *    Customer and Bank classes
- *    - access modifiers
- *    - this keyword
- *    - constructors
- *    - getters and setters
- *    - toString
- *    Main class
- *    - instantiation
- *    - calling instance methods
- *    - displaying state
+ *  Interactivity branch
+ *    The user can now do multiple things:
+ *    - add new customers
+ *    - see a list of customer
+ *    - choose a customer
+ *    - update a customer's balance
+ *    - end the session
  *
  *
  *  THINGS TO CONSIDER
  *
- *    The user can now add customers to the bank.
- *    But only if the list of customer objects is empty
- *    what if we want the user to add customers ad-hoc?
- *    what about other actions, like adding money to a customer's account?
- *    How could this be achieved?
+ *    A user session will now generate new valuable data,
+ *    but when the session ends, this data is gone
+ *    How can we persist the state of the program so that next time
+ *    we start the program we can continue where we left off?
+ *
  *
  */
 
