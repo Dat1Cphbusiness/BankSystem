@@ -94,8 +94,7 @@ public class Bank {
             //Flush (Scanner bug)
             scan.nextLine();
 
-            Customer c = new Customer(name, startAmount);
-            this.addCustomer(c);
+            createCustomer(name, startAmount);
 
             System.out.println("Do you wish to create another customer?");
             createCustomer = scan.nextLine();
@@ -104,4 +103,8 @@ public class Bank {
     }
 
 
+    public void createCustomer(String name, float startAmount) {
+        Customer c = new Customer(name, startAmount);
+        this.addCustomer(c);
+    }
 }
