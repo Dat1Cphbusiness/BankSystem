@@ -15,11 +15,12 @@
  *
  *
  *  THINGS TO CONSIDER
- *    The program assumes that a customer can only have one balance.
- *    What if customers where to have multiple accounts? How would you change the code?
  *
- *    The creation of objects is fixed in the main method.
- *    What if we want to give the user the ability to add new customers to the bank?
+ *    The user can now add customers to the bank.
+ *    But only if the list of customer objects is empty
+ *    what if we want the user to add customers ad-hoc?
+ *    what about other actions, like adding money to a customer's account?
+ *    How could this be achieved?
  *
  */
 
@@ -30,17 +31,10 @@ class Main {
 
         Bank bank = new Bank("Sparekassen");
 
-        Customer c1 = new Customer("Kamala",3000);
-        c1.setBalance(4000);
-        c1.addToBalance(1000);
+        if(bank.getCustomers().isEmpty()){
+            bank.runCreateCustomersDialog();
+        }
 
-        bank.addCustomer(c1);
-
-        Customer c2 = new Customer("Tim",3000);
-        c2.setBalance(4000);
-        c2.addToBalance(500);
-
-        bank.addCustomer(c2);
 
         System.out.print(bank);
 
