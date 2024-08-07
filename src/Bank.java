@@ -7,6 +7,7 @@ public class Bank {
     private List<Customer> customers;
 
     public Bank(String name) {
+        this.name = name;
         customers = new ArrayList<>();
     }
     public void addCustomer(Customer c){
@@ -20,31 +21,6 @@ public class Bank {
         return s;
     }
 
-
-       /* Main.ui.displayMsg("Velkommen til "+this.name);
-        int action = 0;
-
-        while(action != listOfActions.size()){// the quit action is the last action
-            action = Main.ui.promptChoice(listOfActions, "Vælg en af følgende:");
-
-            switch(action){
-                case 1:
-                    //Opret kunde
-
-                    this.createCustomer(null, 0);
-                    break;
-                case 2:
-                    // Vis kunder
-                    displayCustomers();
-                    break;
-                case 3:
-                    //Indsæt/Hæv penge
-                    int amount = Main.ui.promptNumeric("Skriv beløb");
-                    currentCustomer.deposit(amount);
-                    break;
-            }
-            Main.saveData(this.customers);
-        }*/
 
     public List getCustomers() {
             return customers;

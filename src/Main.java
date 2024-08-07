@@ -1,17 +1,14 @@
 /** This example demonstrates the foundations of building an object-oriented system in Java.
  *  It uses the domain of a bank
  *
- *  Main branch
- *    Customer and Bank classes
- *    - access modifiers
- *    - this keyword
- *    - constructors
- *    - getters and setters
- *    - toString
+ *  adHoc_object_creation branch
+ *     Bank class
+ *    - getter for customers list, needed to check if we want the user to create customers
+ *    - a method for users to create customers
+ *
  *    Main class
- *    - instantiation
- *    - calling instance methods
- *    - displaying state
+ *    - instantiation now only of Bank class
+ *    - call to Bank object's method for creating customers
  *
  *
  *  THINGS TO CONSIDER
