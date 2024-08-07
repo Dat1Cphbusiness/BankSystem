@@ -19,7 +19,7 @@ public class Customer {
 
 
     public String toString(){
-        return this.name + ": "+ this.balance;
+        return this.name + ", "+ this.balance;
     }
 
 }
