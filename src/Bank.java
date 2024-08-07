@@ -1,64 +1,22 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Bank {
- private String name;
- private ArrayList<Customer> customers;
- private ArrayList<String> listOfActions;
- private Customer currentCustomer;
+    private String name;
+    private List<Customer> customers;
 
-    public Bank(String name){
-        this.name = name;
+    public Bank(String name) {
         customers = new ArrayList<>();
-        listOfActions = new ArrayList<>();
-        listOfActions.add("1) Opret kunde");
-        listOfActions.add("2) Vis kunder");
-        listOfActions.add("3) Indsæt/hæv penge");
-        listOfActions.add("4) afslut");
     }
-    public void createCustomer(String name, int balance){
-        if(name == null) {
-            name = Main.ui.promptText("Kundens navn: ");
+    public void addCustomer(Customer c){
+        this.customers.add(c);
+    }
+    public String toString(){
+        String s = "";
+        for (Customer c:customers) {
+            s+=c+"\n";
         }
-        currentCustomer =  new Customer(name, balance);
-        this.customers.add(currentCustomer);
+        return s;
     }
-    public void runDialog(){
-        Main.ui.displayMsg("Velkommen til "+this.name);
-        int action = 0;
-
-        while(action != listOfActions.size()){// the quit action is the last action
-         action = Main.ui.promptChoice(listOfActions, "Vælg en af følgende:");
-
-         switch(action){
-             case 1:
-                 //Opret kunde
-
-                  this.createCustomer(null, 0);
-                  break;
-              case 2:
-                  // Vis kunder
-                  displayCustomers();
-                  break;
-             case 3:
-                  //Indsæt/Hæv penge
-                  int amount = Main.ui.promptNumeric("Skriv beløb");
-                  currentCustomer.deposit(amount);
-                  break;
-         }
-         Main.saveData(this.customers);
-        }
-
-
-        //  5) create a switch-case statement that looks at the action variable and has a case for each of the 6 first actions in the list of actions
-
-
-    }
-
-public void displayCustomers(){
- for(Customer c: customers){
-        System.out.println(c);
-    }
-}
-
 
 }

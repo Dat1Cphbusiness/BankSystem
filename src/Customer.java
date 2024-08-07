@@ -1,28 +1,25 @@
+
+
+
 public class Customer {
+
     private String name;
-    private int balance;
-
-
-    public Customer (String name, int startAmount){
+    private double balance;
+    public Customer(String name, double balance) {
         this.name = name;
-        this.balance = startAmount;
+        this.balance = balance;
     }
 
-
-    public void deposit(int amount){
-        this.balance = this.balance + amount;
+    public void addToBalance(double amount) {
+        this.setBalance(this.balance+amount);
+    }
+    public void setBalance(double amount){
+        this.balance = amount;
     }
 
 
     public String toString(){
-        return this.name +", "+this.balance;
+        return this.name + ": "+ this.balance;
     }
 
-    public int getBalance() {
-        return balance;
-    }
-
-    public String getName() {
-        return name;
-    }
 }

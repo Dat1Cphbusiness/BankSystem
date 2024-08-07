@@ -1,52 +1,49 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+/** This example demonstrates the foundations of building an object-oriented system in Java.
+ *  It uses the domain of a bank
+ *
+ *  Main branch
+ *    Customer and Bank classes
+ *    - access modifiers
+ *    - this keyword
+ *    - constructors
+ *    - getters and setters
+ *    - toString
+ *    Main class
+ *    - instantiation
+ *    - calling instance methods
+ *    - displaying state
+ *
+ *
+ *  THINGS TO CONSIDER
+ *    The program assumes that a customer can only have one balance.
+ *    What if customers where to have multiple accounts? How would you change the code?
+ *
+ *    The creation of objects is fixed in the main method.
+ *    What if we want to give the user the ability to add new customers to the bank?
+ *
+ */
 
-public class Main {
 
-    static TextUI ui = new TextUI();
-    static String path = "data/customers.csv";
+class Main {
 
     public static void main(String[] args) {
-       Bank bank = new Bank("Lollandsbanken");
 
-        File file = new File(path);
-        try {
-            Scanner scan = new Scanner(file);
-            scan.nextLine();//skip header
+        Bank bank = new Bank("Sparekassen");
 
-            while(scan.hasNextLine()){
-                String line = scan.nextLine(); // "tess, 40000"
-                String[] values= line.split(",");
-                String name = values[0];
-                int balance = Integer.parseInt(values[1].trim());
-                bank.createCustomer(name,balance);
+        Customer c1 = new Customer("Kamala",3000);
+        c1.setBalance(4000);
+        c1.addToBalance(1000);
 
-            }
+        bank.addCustomer(c1);
 
-        }catch(FileNotFoundException e){
-            System.out.println("File was not found");
-        }
+        Customer c2 = new Customer("Tim",3000);
+        c2.setBalance(4000);
+        c2.addToBalance(500);
 
-        bank.runDialog();
-    }
+        bank.addCustomer(c2);
+
+        System.out.print(bank);
 
 
-    public static void saveData(ArrayList<Customer> customers) {
-
-
-        try {
-            FileWriter writer = new FileWriter(path);
-            writer.write("Name, Balance\n"); //Giv csv filen en header
-            for (Customer c: customers) {
-               writer.write(c+"\n"); //"Tess, 40000";
-            }
-            writer.close();
-        }catch (IOException e){
-
-        }
     }
 }
