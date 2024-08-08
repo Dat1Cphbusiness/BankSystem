@@ -1,14 +1,14 @@
 /** This example demonstrates the foundations of building an object-oriented system in Java.
  *  It uses the domain of a bank
  *
- *  adHoc_object_creation branch
+ *
+ *  adHoc_object_creation branch, subjects and techniques:
  *     Bank class
- *    - getter for customers list, needed to check if we want the user to create customers
- *    - a method for users to create customers
+ *    - using the Scanner with a while loop for user dialog
+ *    - Scanner bug
  *
  *    Main class
- *    - instantiation now only of Bank class
- *    - call to Bank object's method for creating customers
+ *    - condition to check state of an array
  *
  *
  *  THINGS TO CONSIDER
