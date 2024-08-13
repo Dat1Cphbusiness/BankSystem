@@ -2,7 +2,7 @@
  *  It uses the domain of a bank
  *
  *
- *  adHoc_object_creation branch, subjects and techniques:
+ *  adHoc_object_creation branch demonstrates the following subjects and techniques:
  *     Bank class
  *    - using the Scanner with a while loop for user dialog
  *    - Scanner bug
