@@ -32,7 +32,6 @@ class Main {
             bank.runCreateCustomersDialog();
         }
 
-
         System.out.print(bank);
 
 

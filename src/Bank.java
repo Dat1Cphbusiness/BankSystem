@@ -49,4 +49,13 @@ public class Bank {
 
         }
     }
+    public void endSession(){
+
+        ArrayList<String> customersAsText = new ArrayList<>();
+        for (Customer c:customers) {
+            customersAsText.add(c.toString());
+        }
+        FileIO.saveData(customersAsText, "data.csv", "name, balance");
+    }
+
 }
