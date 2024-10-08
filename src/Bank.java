@@ -27,25 +27,25 @@ public class Bank {
     }
 
     public void runCreateCustomersDialog() {
-        Scanner scan = new Scanner(System.in);
+        TextUI ui = new TextUI();
         String continueDialog = "Y";
         while (continueDialog.equalsIgnoreCase("Y")){
 
-            System.out.println("Type name of customer:");
-            String name = scan.nextLine();
 
-            System.out.println("Type start amount:");
-            float startAmount = scan.nextFloat();
+            String name = ui.promptText("Type name of customer:");
 
-            //Flush (Scanner bug)
-            scan.nextLine();
+
+            int startAmount = ui.promptNumeric("Type start amount:");
+
+
 
 
             Customer c = new Customer(name, startAmount);
             this.addCustomer(c);
 
-            System.out.println("Do you wish to create another customer?Y/N");
-            continueDialog = scan.nextLine();
+
+            continueDialog = ui.promptText("Do you wish to create another customer?Y/N");
+
 
         }
     }
