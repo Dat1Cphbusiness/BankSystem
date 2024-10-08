@@ -27,6 +27,7 @@ class Main {
     public static void main(String[] args) {
 
         Bank bank = new Bank("Sparekassen");
+        bank.createCustomersFromData();
 
         if(bank.getCustomers().isEmpty()){
             bank.runCreateCustomersDialog();
@@ -34,6 +35,6 @@ class Main {
 
         System.out.print(bank);
 
-
+        bank.endSession();
     }
 }

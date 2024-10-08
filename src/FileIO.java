@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class FileIO {
 
-    public static List<String> readData(String path) {
-        List data = new ArrayList();
+    public static ArrayList<String> readData(String path) {
+        ArrayList<String> data = new ArrayList();
         File file = new File(path);
         try {
             Scanner scan = new Scanner(file);
@@ -39,7 +39,7 @@ public class FileIO {
             }
             writer.close();
         }catch (IOException e){
-
+            System.out.println("something went wrong when writing to file");
         }
     }
 }

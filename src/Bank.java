@@ -29,15 +29,13 @@ public class Bank {
     public void runCreateCustomersDialog() {
         TextUI ui = new TextUI();
         String continueDialog = "Y";
-        while (continueDialog.equalsIgnoreCase("Y")){
+        while (continueDialog.equalsIgnoreCase("Y")) {
 
 
             String name = ui.promptText("Type name of customer:");
 
 
             int startAmount = ui.promptNumeric("Type start amount:");
-
-
 
 
             Customer c = new Customer(name, startAmount);
@@ -49,13 +47,26 @@ public class Bank {
 
         }
     }
+   public void createCustomersFromData(){
+     ArrayList<String> data = FileIO.readData("data/customerdata.csv");
+
+       if(!data.isEmpty()) {
+           for (String s:data) {
+               String[] values= s.split(",");
+               String name = values[0];
+               int balance = Integer.parseInt(values[1].trim());
+               Customer c = new Customer(name, balance);
+               customers.add(c);
+           }
+       }
+   }
     public void endSession(){
 
         ArrayList<String> customersAsText = new ArrayList<>();
         for (Customer c:customers) {
             customersAsText.add(c.toString());
         }
-        FileIO.saveData(customersAsText, "data.csv", "name, balance");
+        FileIO.saveData(customersAsText, "data/customerdata.csv", "name, balance");
     }
 
 }
