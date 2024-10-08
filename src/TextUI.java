@@ -22,13 +22,12 @@ public class TextUI {
         int number = Integer.parseInt(input);       //Konvertere svaret til et tal
         return number;
     }
-    public static int promptChoice(List<String> optionslist, String msg){//["Gin&Tonic", "Beer","Vine" ]
+    public static int promptChoice(List<String> optionslist, String msg){
         displayMsg(msg);
         displayList(optionslist, "");
         int input = promptNumeric("");//1
       //  return optionslist.get(input-1);
         return input;
-
     }
 
   public static void displayMsg(String msg){
