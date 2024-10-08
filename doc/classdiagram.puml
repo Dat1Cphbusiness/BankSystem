@@ -15,7 +15,7 @@ class Bank{
 
 class Customer{
  - String name
- - double balance
+ - int balance
  + Customer(String, int)
  + void addToBalance(int)
  + void setBalance(int)

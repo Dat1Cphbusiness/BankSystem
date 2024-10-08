@@ -4,16 +4,16 @@
 public class Customer {
 
     private String name;
-    private double balance;
-    public Customer(String name, double balance) {
+    private int balance;
+    public Customer(String name, int balance) {
         this.name = name;
         this.balance = balance;
     }
 
-    public void addToBalance(double amount) {
+    public void addToBalance(int amount) {
         this.setBalance(this.balance+amount);
     }
-    public void setBalance(double amount){
+    public void setBalance(int amount){
         this.balance = amount;
     }
 
