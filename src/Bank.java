@@ -28,8 +28,8 @@ public class Bank {
 
     public void runCreateCustomersDialog() {
         Scanner scan = new Scanner(System.in);
-        String createCustomer = "yes";
-        while (createCustomer.equalsIgnoreCase("yes")){
+        String continueDialog = "Y";
+        while (continueDialog.equalsIgnoreCase("Y")){
 
             System.out.println("Type name of customer:");
             String name = scan.nextLine();
@@ -40,11 +40,12 @@ public class Bank {
             //Flush (Scanner bug)
             scan.nextLine();
 
+
             Customer c = new Customer(name, startAmount);
             this.addCustomer(c);
 
-            System.out.println("Do you wish to create another customer?");
-            createCustomer = scan.nextLine();
+            System.out.println("Do you wish to create another customer?Y/N");
+            continueDialog = scan.nextLine();
 
         }
     }
